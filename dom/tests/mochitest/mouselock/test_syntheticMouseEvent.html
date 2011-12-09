@@ -1,20 +1,17 @@
 <!DOCTYPE HTML>
 <html>
-  <!-- https://bugzilla.mozilla.org/show_bug.cgi?id=633602 -->
-  
+  <!--
+  https://bugzilla.mozilla.org/show_bug.cgi?id=633602
+  -->
   <head>
-    <title>
-      Test for Bug 633602
-    </title>
-    <script type="application/javascript" 
-      src="/tests/SimpleTest/SimpleTest.js">
-    </script>
-    <script type="text/javascript" src="/tests/SimpleTest/EventUtils.js">
-    </script>
+    <title>Test for Bug 633602</title>
+    <script type="application/javascript"
+      src="/tests/SimpleTest/SimpleTest.js"></script>
+    <script type="text/javascript"
+      src="/tests/SimpleTest/EventUtils.js"></script>
     <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css"
       />
   </head>
-  
   <body>
     <a target="_blank" 
       href="https://bugzilla.mozilla.org/show_bug.cgi?id=633602">
@@ -65,21 +62,20 @@ gooooAKKKKAP/2Q%3D%3D"
               function mouseEvents() {
                 console.log("mouse event");
                 sendMouseEvent({
-                  type: 'click'
+                  type: "click"
                 }, lockArea);
                 sendMouseEvent({
-                  type: 'mousedown'
+                  type: "mousedown"
                 }, lockArea);
                 sendMouseEvent({
-                  type: 'mouseup'
+                  type: "mouseup"
                 }, lockArea);
                 sendMouseEvent({
-                  type: 'mouseout'
+                  type: "mouseout"
                 }, lockArea);
               }
-              document.addEventListener('mozfullscreenchange', function() {
+              document.addEventListener("mozfullscreenchange", function() {
                 if (document.mozFullScreen) {
-                  /* Run test with mouse unlocked */
                   console.log("full screen change"); 
                   mouseEvents();
                   is(mClick, 1, 
@@ -90,7 +86,6 @@ gooooAKKKKAP/2Q%3D%3D"
                     "Unlocked mouseup: Synehtic mouse event failed.");
                   is(mOut, 1, 
                     "Unlocked mouseout: Synehtic mouse event failed."); 
-                    /* Run the same test with mouse locked */
                   pointer.lock(lockArea, function() {
                     mouseEvents();
                     console.log("lock done");
