@@ -9,6 +9,9 @@
       src="/tests/SimpleTest/SimpleTest.js"></script>
     <script type="text/javascript"
       src="/tests/SimpleTest/EventUtils.js"></script>
+    <script type="application/javascript"
+      src="mouselock_utils.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css"
       />
   </head>
@@ -81,8 +84,6 @@
               });
               SimpleTest.waitForExplicitFinish();
               lockArea = document.getElementById("lockArea");
-              SpecialPowers.setBoolPref(
-                "full-screen-api.allow-trusted-requests-only", false);
               lockArea.mozRequestFullScreen();
             }
             document.addEventListener("DOMContentLoaded", runtest, false);
