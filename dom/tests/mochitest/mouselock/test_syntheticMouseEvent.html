@@ -20,30 +20,6 @@
       <img onclick="mClick++;" onmousedown="down++;" onmouseup="up++;"
         onmouseout="mOut++;" id="lockArea" width="101" height="101"
         alt="Synethetic Mouse Event Test Area"
-        src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGB\
-QgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zND\
-L/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI\
-yMjIyMjIyMjIyMjL/wAARCABlAGUDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQF\
-BgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0\
-fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eX\
-qDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+T\
-l5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgEC\
-BAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYG\
-RomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZ\
-aXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn\
-6/9oADAMBAAIRAxEAPwDvaKKK/LziCiiigAooooAx9G/5CniH/sIJ/wCksFbFY+jf8hTxD/2EE/8A\
-SWCtita3xL0X5IbCiiishBRRRQAUUUUAFFFFABRRRQAUUUUAY+jf8hTxD/2EE/8ASWCtisfRv+Qp4\
-h/7CCf+ksFbFa1viXovyQ2FFFFZCCiiigAooooAKKKKACiiigAooooAx9G/5CniH/sIJ/6SwVsVj6\
-N/yFPEP/YQT/0lgrYrWt8S9F+SGwooorIQUUUUAFFFFAGP/Y1//wBDLqv/AH7tf/jNH9jX/wD0Muq\
-/9+7X/wCM1sUVr7aXZfcv8guY/wDY1/8A9DLqv/fu1/8AjNH9jX//AEMuq/8Afu1/+M1sUUe2l2X3\
-L/ILmP8A2Nf/APQy6r/37tf/AIzR/Y1//wBDLqv/AH7tf/jNbFFHtpdl9y/yC5yek6TetqWugeIdS\
-QpfKCyx22XP2eE5OYuvIHGBgDvknU/sa/8A+hl1X/v3a/8AxmjRv+Qp4h/7CCf+ksFbFa1q0ubpsu\
-i7LyG2Y/8AY1//ANDLqv8A37tf/jNH9jX/AP0Muq/9+7X/AOM1sUVl7aXZfcv8hXMf+xr/AP6GXVf\
-+/dr/APGaP7Gv/wDoZdV/792v/wAZrYoo9tLsvuX+QXMf+xr/AP6GXVf+/dr/APGaK2KKPbS7L7l/\
-kFwooorIAooooAKKKKAMfRv+Qp4h/wCwgn/pLBWxWPo3/IU8Q/8AYQT/ANJYK2K1rfEvRfkhsKKKK\
-yEFFFFABRRRQAUUUUAFFFFABRRRQBj6N/yFPEP/AGEE/wDSWCtisfRv+Qp4h/7CCf8ApLBWxWtb4l\
-6L8kNhRRRWQgooooAKKKKACiiigAooooAKKKKAMfRv+Qp4h/7CCf8ApLBWxRRWtb4l6L8kNhRRRWQ\
-gooooAKKKKAP/2Q%3D%3D"
       />
     </div>
     <pre id="test">
@@ -60,7 +36,6 @@ gooooAKKKKAP/2Q%3D%3D"
 
             function runtest() {
               function mouseEvents() {
-                console.log("mouse event");
                 sendMouseEvent({
                   type: "click"
                 }, lockArea);
@@ -76,7 +51,6 @@ gooooAKKKKAP/2Q%3D%3D"
               }
               document.addEventListener("mozfullscreenchange", function() {
                 if (document.mozFullScreen) {
-                  console.log("full screen change");
                   mouseEvents();
                   is(mClick, 1,
                     "Unlocked click: Synehtic mouse event failed.");
@@ -88,7 +62,6 @@ gooooAKKKKAP/2Q%3D%3D"
                     "Unlocked mouseout: Synehtic mouse event failed.");
                   pointer.lock(lockArea, function() {
                     mouseEvents();
-                    console.log("lock done");
                     is(mClick, 2,
                       "Locked click: Synehtic mouse event failed.");
                     is(down, 2,
@@ -100,7 +73,6 @@ gooooAKKKKAP/2Q%3D%3D"
                     SimpleTest.finish();
                     document.mozCancelFullScreen();
                   }, function() {
-                    console.log("lock failed");
                     ok(false, "Mouse lock failed to fire");
                     SimpleTest.finish();
                     document.mozCancelFullScreen();
