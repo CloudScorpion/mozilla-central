@@ -13,12 +13,12 @@
       />
   </head>
   <body>
-    <a target="_blank" 
+    <a target="_blank"
       href="https://bugzilla.mozilla.org/show_bug.cgi?id=633602">
       Mozilla Bug 633602</a>
     <div id="content">
-      <img onclick="mClick++;" onmousedown="down++;" onmouseup="up++;" 
-        onmouseout="mOut++;" id="lockArea" width="101" height="101" 
+      <img onclick="mClick++;" onmousedown="down++;" onmouseup="up++;"
+        onmouseout="mOut++;" id="lockArea" width="101" height="101"
         alt="Synethetic Mouse Event Test Area"
         src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGB\
 QgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zND\
@@ -49,7 +49,7 @@ gooooAKKKKAP/2Q%3D%3D"
     <pre id="test">
       <script type="application/javascript">
                   /** Test for Bug 633602 **/
-             /** Test to see if Synthetic Mouse behave the same 
+             /** Test to see if Synthetic Mouse behave the same
 		regardless of mouse lock state **/
             var mClick = 0;
             var down = 0;
@@ -76,26 +76,26 @@ gooooAKKKKAP/2Q%3D%3D"
               }
               document.addEventListener("mozfullscreenchange", function() {
                 if (document.mozFullScreen) {
-                  console.log("full screen change"); 
+                  console.log("full screen change");
                   mouseEvents();
-                  is(mClick, 1, 
+                  is(mClick, 1,
                     "Unlocked click: Synehtic mouse event failed.");
-                  is(down, 1, 
+                  is(down, 1,
                     "Unlocked mousedown: Synehtic mouse event failed.");
-                  is(up, 1, 
+                  is(up, 1,
                     "Unlocked mouseup: Synehtic mouse event failed.");
-                  is(mOut, 1, 
-                    "Unlocked mouseout: Synehtic mouse event failed."); 
+                  is(mOut, 1,
+                    "Unlocked mouseout: Synehtic mouse event failed.");
                   pointer.lock(lockArea, function() {
                     mouseEvents();
                     console.log("lock done");
-                    is(mClick, 2, 
+                    is(mClick, 2,
                       "Locked click: Synehtic mouse event failed.");
-                    is(down, 2, 
+                    is(down, 2,
                       "Locked mousedown: Synehtic mouse event failed.");
-                    is(up, 2, 
+                    is(up, 2,
                       "Locked mouseup: Synehtic mouse event failed.");
-                    is(mOut, 2, 
+                    is(mOut, 2,
                       "Locked mouseout: Synehtic mouse event failed.");
                     SimpleTest.finish();
                     document.mozCancelFullScreen();
@@ -107,7 +107,6 @@ gooooAKKKKAP/2Q%3D%3D"
                   });
                 }
               });
-
               SimpleTest.waitForExplicitFinish();
               lockArea = document.getElementById("lockArea");
               SpecialPowers.setBoolPref(
