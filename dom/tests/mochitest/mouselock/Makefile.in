@@ -66,6 +66,7 @@ _TEST_FILES	= \
     test_UserAgentIsActive.html \
     file_movement.html \
     file_userPref.html \
+    file_syntheticMouseEvent.html
     $(NULL)
 
 libs::	$(_TEST_FILES)
